@@ -1,0 +1,21 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <stdio.h>
+#include <dlfcn.h>
+#include "svdpi.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifndef _VC_TYPES_
+#define _VC_TYPES_
+/* common definitions shared with DirectC.h */
+
+
+
+#ifdef __cplusplus
+}
+#endif
+

@@ -1,0 +1,6 @@
+#!/bin/bash -i
+vcs -sverilog -lca -debug_access+all -P /home/disk/Verdi3_L-2016.06-1/share/PLI/VCS/LINUX64/novas.tab /home/disk/Verdi3_L-2016.06-1/share/PLI/VCS/LINUX64/pli.a -full64 +libext+.v+.h+.vh+.vlib -kdb +vcs+vcdpluson -timescale="1ns/100ps" -l comp.log -ntb_opts uvm-1.2 pkg/*.svh pkg/*.sv *.sv tests/*.sv -top simpletb +define+UVM_NO_DEPRECATED+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR+
+
+./simv +ntb_random_seed=1 -l simv.log +UVM_TESTNAME=test_base +UVM_VERBOSITY=UVM_MEDIUM + + +UVM_TR_RECORD +UVM_LOG_RECORD +UVM_VERDI_TRACE
+
+verdi -play debug_files/packet.cmd -nologo &

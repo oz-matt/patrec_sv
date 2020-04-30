@@ -1,0 +1,4 @@
+#!/bin/bash
+vcs -sverilog -debug_access+r -ntb_opts uvm-1.2 -timescale=1ns/1ns +vcs+flush+all +warn=all pkg/*.svh pkg/*.sv *.sv tests/*.sv -top simpletb
+
+./simv +ntb_random_seed=1 +UVM_TESTNAME=test_base +UVM_VERBOSITY=UVM_HIGH
