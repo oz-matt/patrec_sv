@@ -1,5 +1,5 @@
-class iMonitor extends uvm_monitor;
-  `uvm_component_utils(iMonitor)
+class oMonitor extends uvm_monitor;
+  `uvm_component_utils(oMonitor)
   
 	virtual axilite_int#(1,32,8) vif;
 
@@ -27,8 +27,8 @@ virtual task run_phase(uvm_phase phase);
 
     forever begin
       tr = seq_packet::type_id::create("tr", this);
-      tr.bt = vif.AXI_ARVALID;
-      `uvm_info("Got_Input_Packet", {"\n", tr.sprint()}, UVM_MEDIUM);
+      tr.bt = vif.AXI_ARREADY;
+      `uvm_info("Got_Output_Packet", {"\n", tr.sprint()}, UVM_MEDIUM);
       analysis_port.write(tr);
     end
     
